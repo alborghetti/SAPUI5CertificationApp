@@ -1,0 +1,104 @@
+<core:View controllerName="it.interlem.sapui5TrainingTrainingDemo.controller.OrderInfo"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack"
+		showNavButton="true" title="{i18n>orderTitle}" busy="{orderView>/busy}"
+		busyIndicatorDelay="{orderView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader id="orderHeader" title="{i18n>orderID} {OrderID}">
+			</ObjectHeader>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormDisplayOrder" editable="false">
+					<f:title>
+						<core:Title text="{i18n>orderInfo}" />
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3"
+							labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+							emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+							columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>orderDate}">
+									<f:fields>
+										<Text
+											text="{
+											path: 'OrderDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'long'
+											}
+										}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>requiredDate}">
+									<f:fields>
+										<Text
+											text="{
+											path: 'RequiredDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'long'
+											}
+										}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>shippedDate}">
+									<f:fields>
+										<Text
+											text="{
+											path: 'ShippedDate',
+											type: 'sap.ui.model.type.Date',
+											formatOptions: {
+												style: 'long'
+											}
+										}" />
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+				<f:Form id="FormDisplayDeliveryAddress" editable="false">
+					<f:title>
+						<core:Title text="{i18n>orderAddress}" />
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3"
+							labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+							emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+							columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>detailFormStreet}">
+									<f:fields>
+										<Text text="{ShipAddress}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>detailFormCity}">
+									<f:fields>
+										<Text text="{ShipPostalCode} {ShipCity}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>detailFormCountry}">
+									<f:fields>
+										<Text text="{ShipCountry}" />
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</semantic:content>
+	</semantic:DetailPage>
+
+
+</core:View>
